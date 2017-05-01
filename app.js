@@ -28,9 +28,10 @@ taskInput.addEventListener('keyup', (e) => {
 
 tasks.addEventListener('click', (event) => {
   const tag = event.target.tagName;
+    const basevalue = event.target.className.baseVal;
   //Only svg and path tags can be correctly followed - CHECK: maybe the event listener would be better bound to SVG itself?
   if (tag === 'svg') {
-    if (event.target.className.baseVal === 'delete') {
+    if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
       let li = event.target.parentNode.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
@@ -39,8 +40,7 @@ tasks.addEventListener('click', (event) => {
     }
 
   } else if (tag === 'path') {
-    console.log(event.target.className);
-    if (event.target.className.baseVal === 'delete') {
+    if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
       let li = event.target.parentNode.parentNode.parentNode.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
