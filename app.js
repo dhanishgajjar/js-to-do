@@ -10,8 +10,6 @@ const tasks = document.querySelector('ul.tasks');
 const list = tasks.children;
 const deleteB = document.querySelector('svg.delete');
 
-
-
 for (let i = 0; i < list.length; i += 1) {
   attachButton(list[i]);
 }
@@ -30,7 +28,7 @@ taskInput.addEventListener('keyup', (e) => {
 
 tasks.addEventListener('click', (event) => {
     const tag = event.target.tagName;
-    
+    //Only svg and path tags can be correctly followed - CHECK: maybe the event listener would be better bound to SVG itself?
     if(tag === 'svg'){
       let li = event.target.parentNode.parentNode;
       let ul = li.parentNode;
