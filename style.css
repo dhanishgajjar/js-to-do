@@ -9,10 +9,6 @@ body {
 	background: rgb(187, 222, 240);
 }
 
-.black {
-	color: black;
-}
-
 ul {
 	list-style: none;
 	margin: 0;
@@ -51,15 +47,7 @@ ul {
 	outline: none;
 }
 
-.delete {
-	height: 1.5em;
-}
-
-.delete img {
-	padding: 2em;
-}
-
-.tasks, .tasks li, footer {
+.tasks, .tasks li, .btns, footer {
 	display: flex;
 }
 
@@ -68,18 +56,41 @@ ul {
 	flex-direction: column;
 }
 
+.btns {
+	flex-direction: row;
+}
+
 .tasks li {
 	color: #666;
 	font-size: 1em;
 	font-weight: 400;
 	background: white;
-	padding: 1em;
+	padding: .75em 1em;
 	border-radius: .3em;
 	margin: .5em 0;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	transition: transform 0.2s, box-shadow 0.5s;
+}
+
+.tasks li svg {
+	height: 36px;
+	margin-left: .75em;
+}
+
+.bin {
+	fill: tomato;
+	transform: scale(.8);
+}
+
+.cap, .can {
+	transition: transform 0.2s;
+}
+
+.favBox {
+	fill: lightgray;
+	transition: transform 0.2s, fill 0.5s;
+	transform: scale(0.8);
 }
 
 footer {
@@ -125,8 +136,16 @@ footer p {
 		font-size: 1.2em;
 	}
 
-	.delete:hover {
+	.tasks li svg:hover {
 		cursor: pointer;
-		animation: shake .2s;
+	}
+
+	.favBox:hover {
+		fill: #FFD842;
+		transform: scale(0.9);
+	}
+
+	.bin:hover .cap {
+		transform: rotate(-12deg);
 	}
 }
