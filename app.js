@@ -15,28 +15,37 @@ for (let i = 0; i < list.length; i += 1) {
 }
 
 taskInput.addEventListener('keyup', (e) => {
-  if (e.keyCode == 13) {
-		let ul = document.getElementsByTagName('ul')[0];
-	  let li = document.createElement('li');
+  if (e.keyCode === 13) {
+    let ul = document.getElementsByTagName('ul')[0];
+    let li = document.createElement('li');
 
-	  li.textContent = task.value;
+    li.textContent = task.value;
     attachButton(li);
-	  ul.appendChild(li);
-	  task.value = '';
-	}
+    ul.appendChild(li);
+    task.value = '';
+  }
 });
 
 tasks.addEventListener('click', (event) => {
-    const tag = event.target.tagName;
-    //Only svg and path tags can be correctly followed - CHECK: maybe the event listener would be better bound to SVG itself?
-    if(tag === 'svg'){
+  const tag = event.target.tagName;
+  //Only svg and path tags can be correctly followed - CHECK: maybe the event listener would be better bound to SVG itself?
+  if (tag === 'svg') {
+    if (event.target.className.baseVal === 'delete') {
       let li = event.target.parentNode.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
-    } else if(tag === 'path') {
+    } else { //if more classes come use elseif
+      console.log('FAVOURITE');
+    }
+
+  } else if (tag === 'path') {
+    console.log(event.target.className);
+    if (event.target.className.baseVal === 'delete') {
       let li = event.target.parentNode.parentNode.parentNode.parentNode;
       let ul = li.parentNode;
       ul.removeChild(li);
+    } else { //if more classes come use elseif
+      console.log('FAVOURITE');
     }
+  }
 });
-
