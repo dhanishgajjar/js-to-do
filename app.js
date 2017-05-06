@@ -45,7 +45,7 @@ lists.addEventListener('click', (event) => {
   const clickArea2 = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.className;
   const clickArea3 = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.className;
 
-  // Checking if buttons inside tasks section is clicked
+  // Checking if buttons inside tasks section is clicked=
   if ( clickArea1 === 'tasks' || clickArea2 === 'tasks' || clickArea3 === 'tasks' ) {
     if (tag === 'svg') {
       if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
