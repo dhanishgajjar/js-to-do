@@ -19,7 +19,7 @@ h3 {
 	font-size: 1em;
 	font-weight: 700;
 	color: rgba(0, 0, 0, 0.3);
-	margin-left: 1.5em;
+	margin-left: 1em;
 }
 
 .wrapper {
@@ -59,12 +59,13 @@ h3 {
 }
 
 .favs {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 .favs, .tasks {
 	margin-top: 1em;
 	flex-direction: column;
+	text-align: center;
 }
 
 .btns {
@@ -83,6 +84,7 @@ ul li {
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
+	line-height: 1.5;
 }
 
 .favs ul li svg, .tasks ul li svg {
@@ -96,7 +98,7 @@ ul li {
 
 .bin {
 	fill: tomato;
-	transform: scale(.8);
+	transform: scale(0.75);
 }
 
 .cap {
@@ -106,7 +108,7 @@ ul li {
 .fav {
 	fill: lightgray;
 	transition: transform 0.2s, fill 0.5s;
-	transform: scale(0.8);
+	transform: scale(0.75);
 }
 
 footer {
@@ -133,12 +135,20 @@ footer p {
 		height: 1.2em;
 	}
 
+	.favs, .tasks {
+		text-align: left;
+	}
+
 	.favs li, .tasks li {
 		font-size: 1.25em;
 	}
 
 	li svg:hover {
 		cursor: pointer;
+	}
+
+	.fav, .bin {
+		transform: scale(0.85);
 	}
 
 	.fav:hover {
@@ -148,4 +158,5 @@ footer p {
 	.bin:hover .cap {
 		transform: rotate(-9deg);
 	}
+
 }

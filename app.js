@@ -1,5 +1,7 @@
-const lists = document.querySelector('.lists');
+"use strict";
+
 const taskInput = document.querySelector('input.task');
+const lists = document.querySelector('.lists');
 
 const favsSection = document.querySelector('.favs');
 const favTitle = document.querySelector('.favs h3');
