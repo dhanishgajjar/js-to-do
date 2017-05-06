@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/6.0.0/normalize.min.css" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 		<link href="style.css" rel="stylesheet">
 	</head>
 	<body>
@@ -16,20 +16,31 @@
 
 				<input type="text" id="task" placeholder="Add Your Task Here" class="task">
 
-				<ul class="tasks"></ul>
+				<div class="lists">
+					<section class="favs">
+						<h3></h3>
+						<ul></ul>
+					</section>
+
+					<section class="tasks">
+						<h3></h3>
+						<ul></ul>
+					</section>
+
+					<section class="done">
+						<h3></h3>
+						<ul></ul>
+					</section>
+				</div>
 
 			</div>
 
 			<footer>
 				<p>&copy;2017 Dhanish Gajjar. All Rights Reserved</p>
-				<p>Made using HTML, CSS and Pure JavaScript</p>
+				<p>Made using HTML, CSS and JavaScript</p>
 			</footer>
 
 		</div>
-		<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
 		<script src="buttons.js"></script>
 		<script src="app.js"></script>
 	</body>

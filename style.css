@@ -15,14 +15,21 @@ ul {
 	padding: 0;
 }
 
+h3 {
+	font-size: 1em;
+	font-weight: 700;
+	color: rgba(0, 0, 0, 0.3);
+	margin-left: 1.5em;
+}
+
 .wrapper {
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 }
 
 .app {
 	margin-top: 2em;
-	width: 100%:
+	width: 100%;
 }
 
 .app input {
@@ -47,25 +54,30 @@ ul {
 	outline: none;
 }
 
-.tasks, .tasks li, .btns, footer {
+.favs, .tasks, .favs ul li, .tasks ul li, .btns, footer {
 	display: flex;
 }
 
-.tasks {
+.favs {
+	margin-bottom: 2em;
+}
+
+.favs, .tasks {
 	margin-top: 1em;
 	flex-direction: column;
 }
 
 .btns {
 	flex-direction: row;
+	margin-right: -18px;
 }
 
-.tasks li {
+ul li {
 	color: #666;
 	font-size: 1em;
 	font-weight: 400;
 	background: white;
-	padding: .75em 1em;
+	padding: .75em 1.2em;
 	border-radius: .3em;
 	margin: .5em 0;
 	flex-direction: row;
@@ -73,9 +85,13 @@ ul {
 	align-items: center;
 }
 
-.tasks li svg {
+.favs ul li svg, .tasks ul li svg {
 	height: 36px;
-	margin-left: .75em;
+	margin-left: 1.2em;
+}
+
+.favs .fav {
+	fill: #FFD842;
 }
 
 .bin {
@@ -83,11 +99,11 @@ ul {
 	transform: scale(.8);
 }
 
-.cap, .can {
+.cap {
 	transition: transform 0.2s;
 }
 
-.favBox {
+.fav {
 	fill: lightgray;
 	transition: transform 0.2s, fill 0.5s;
 	transform: scale(0.8);
@@ -109,21 +125,6 @@ footer p {
 
 @media (min-width: 768px) {
 
-	@keyframes shake {
-		0% {
-			transform: rotate(0deg)
-		}
-		25% {
-			transform: rotate(-10deg);
-		}
-		75% {
-			transform: rotate(10deg);
-		}
-		100% {
-			transform: rotate(0deg);
-		}
-	}
-
 	.app input {
 		font-size: 1.2em;
 	}
@@ -132,20 +133,19 @@ footer p {
 		height: 1.2em;
 	}
 
-	.tasks li {
-		font-size: 1.2em;
+	.favs li, .tasks li {
+		font-size: 1.25em;
 	}
 
-	.tasks li svg:hover {
+	li svg:hover {
 		cursor: pointer;
 	}
 
-	.favBox:hover {
-		fill: #FFD842;
+	.fav:hover {
 		transform: scale(0.9);
 	}
 
 	.bin:hover .cap {
-		transform: rotate(-12deg);
+		transform: rotate(-9deg);
 	}
 }

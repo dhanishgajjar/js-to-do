@@ -1,51 +1,120 @@
-// Selecting the elements, that will have events and methods
-
-// Text field, where the task is typed.
+const lists = document.querySelector('.lists');
 const taskInput = document.querySelector('input.task');
 
-// Parent Element of the list items
-const tasks = document.querySelector('ul.tasks');
+const favsSection = document.querySelector('.favs');
+const favTitle = document.querySelector('.favs h3');
+const favs = document.querySelector('.favs ul');
+const favsItems = favs.children;
 
-// All list items
-const list = tasks.children;
-const deleteB = document.querySelector('svg.delete');
+const tasksSection = document.querySelector('.tasks');
+const tasksTitle = document.querySelector('.tasks h3');
+const tasks = document.querySelector('.tasks ul');
+const taskItems = tasks.children;
 
-for (let i = 0; i < list.length; i += 1) {
-  attachButton(list[i]);
-}
+if ( favsItems.length === 0 ) {
+  favsSection.style.display = 'none';
+};
+
+if ( taskItems.length === 0 ) {
+  tasksSection.style.display = "none";
+};
 
 taskInput.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
-    let ul = document.getElementsByTagName('ul')[0];
     let li = document.createElement('li');
 
-    li.textContent = task.value;
+    li.textContent = taskInput.value;
     attachButton(li);
-    ul.appendChild(li);
-    task.value = '';
+    tasks.appendChild(li);
+    tasksTitle.style.display = '';
+    taskInput.value = '';
+
+    tasksTitle.textContent = "Inbox";
+    tasksSection.style.display = "";
   }
 });
 
-tasks.addEventListener('click', (event) => {
+lists.addEventListener('click', (event) => {
+
   const tag = event.target.tagName;
-    const basevalue = event.target.className.baseVal;
-  //Only svg and path tags can be correctly followed - CHECK: maybe the event listener would be better bound to SVG itself?
-  if (tag === 'svg') {
-    if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
-      let li = event.target.parentNode.parentNode;
-      let ul = li.parentNode;
-      ul.removeChild(li);
-    } else { //if more classes come use elseif
-      console.log('FAVOURITE');
+  const basevalue = event.target.className.baseVal;
+
+  const clickArea1 = event.target.parentNode.parentNode.parentNode.parentNode.className;
+  const clickArea2 = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.className;
+  const clickArea3 = event.target.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.className;
+
+  // Checking if buttons inside tasks section is clicked
+  if ( clickArea1 === 'tasks' || clickArea2 === 'tasks' || clickArea3 === 'tasks' ) {
+    if (tag === 'svg') {
+      if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
+        let li = event.target.parentNode.parentNode;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+      } else if ( basevalue === 'fav') {
+        let li = event.target.parentNode.parentNode;
+        let ul = li.parentNode;
+        favsSection.style.display = '';
+        favs.appendChild(li);
+        favTitle.textContent = "Favorites";
+      }
+
+      if ( taskItems.length === 0 ) {
+        tasksSection.style.display = "none";
+      };
+
+    } else if (tag === 'path') {
+      if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
+        let li = event.target.parentNode.parentNode.parentNode.parentNode;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+      } else if ( basevalue === 'favPath') {
+        let li = event.target.parentNode.parentNode.parentNode;
+        let ul = li.parentNode;
+        favsSection.style.display = '';
+        favs.appendChild(li);
+        favTitle.textContent = "Favorites";
+      }
+
+      if ( taskItems.length === 0 ) {
+        tasksSection.style.display = "none";
+      };
     }
 
-  } else if (tag === 'path') {
-    if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
-      let li = event.target.parentNode.parentNode.parentNode.parentNode;
-      let ul = li.parentNode;
-      ul.removeChild(li);
-    } else { //if more classes come use elseif
-      console.log('FAVOURITE');
+    // Checking if buttons inside favs section is clicked
+  } else if ( clickArea1 === 'favs' || clickArea2 === 'favs' || clickArea3 === 'favs' ) {
+    if (tag === 'svg') {
+      if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
+        let li = event.target.parentNode.parentNode;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+      } else if ( basevalue === 'fav') {
+        let li = event.target.parentNode.parentNode;
+        let ul = li.parentNode;
+        tasksSection.style.display = '';
+        tasks.appendChild(li);
+        tasksTitle.textContent = "Inbox";
+      }
+
+      if ( favsItems.length === 0 ) {
+        favsSection.style.display = 'none';
+      };
+
+    } else if (tag === 'path') {
+      if (basevalue  === 'delete' || basevalue  === 'can' || basevalue  === 'cap' || basevalue  === 'bin') {
+        let li = event.target.parentNode.parentNode.parentNode.parentNode;
+        let ul = li.parentNode;
+        ul.removeChild(li);
+      } else if ( basevalue === 'favPath') {
+        let li = event.target.parentNode.parentNode.parentNode;
+        let ul = li.parentNode;
+        tasksSection.style.display = '';
+        tasks.appendChild(li);
+        tasksTitle.textContent = "Inbox";
+      }
+
+      if ( favsItems.length === 0 ) {
+        favsSection.style.display = 'none';
+      };
     }
   }
 });

@@ -1,29 +1,27 @@
 function attachButton(li) {
 
   let btns = document.createElement('div');
-
   btns.className = 'btns';
   li.appendChild(btns);
 
   const xmlns = "http://www.w3.org/2000/svg";
-  var boxWidth = 36;
-  var boxHeight = 36;
+  let boxWidth = 36;
+  let boxHeight = 36;
 
   const favoriteButton = document.createElementNS(xmlns, "svg");
   favoriteButton.setAttributeNS(null, "viewBox", "0 0" + " " + boxWidth + " "+ boxHeight);
   favoriteButton.setAttributeNS(null, "width", boxWidth);
   favoriteButton.setAttributeNS(null, "height", boxHeight);
-	favoriteButton.setAttributeNS(null, 'class', "favBox");
+	favoriteButton.setAttributeNS(null, 'class', "fav");
 
   favoriteButton.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid');
-  var favPath = document.createElementNS (xmlns, "path");
+  let favPath = document.createElementNS (xmlns, "path");
 
   favPath.setAttributeNS (null, 'd', "M23 11L18 0l-5 11c-.4.5-1 1-1.6 1L0 13.8l8.3 8.4c.4.5.6 1.2.5 2L6.8 36 17 30.4l1-.3c.4 0 .7.4 1 .6L29 36l-1.8-12c0-.6 0-1.3.5-1.8l8.3-8.4L24.6 12c-.7 0-1.2-.5-1.5-1z");
-	favPath.setAttributeNS(null, 'class', "fav");
+	favPath.setAttributeNS(null, 'class', "favPath");
 
   favoriteButton.appendChild(favPath);
   btns.appendChild(favoriteButton);
-
 
 	boxWidth = 36;
 	boxHeight = 24;
@@ -35,12 +33,12 @@ function attachButton(li) {
   deleteButton.setAttributeNS(null, 'class', "delete");
   deleteButton.setAttributeNS(null, 'preserveAspectRatio', 'xMidYMid');
 
-  var bin = document.createElementNS(xmlns, "g");
+  let bin = document.createElementNS(xmlns, "g");
   bin.setAttributeNS(null, "class", "bin");
-  var cap = document.createElementNS (xmlns, "path");
+  let cap = document.createElementNS (xmlns, "path");
   cap.setAttributeNS(null, "class", "cap");
 
-  var can = document.createElementNS (xmlns, "path");
+  let can = document.createElementNS (xmlns, "path");
   can.setAttributeNS(null, "class", "can");
 
   cap.setAttributeNS (null, 'd', "M23.7252648,1.75191502 L16.5206374,1.75191502 L16.5206374,0.358408695 C16.5206374,0.160513813 16.3638258,0 16.1703135,0 L8.60470208,0 C8.41127124,0 8.25445962,0.160513813 8.25445962,0.358408695 L8.25445962,1.75183177 L1.04975087,1.75183177 C0.46994661,1.75183177 0,2.23270718 0,2.8258923 L0,6.19992928 L24.7750156,6.19992928 L24.7750156,2.82597555 C24.7750156,2.23279043 24.305069,1.75191502 23.7252648,1.75191502 Z");
