@@ -24,15 +24,18 @@ if ( taskItems.length === 0 ) {
 taskInput.addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     let li = document.createElement('li');
+    if (taskInput.value === "") {
+      alert("Please add a task");
+    } else {
+      li.textContent = taskInput.value;
+      attachButton(li);
+      tasks.appendChild(li);
+      tasksTitle.style.display = '';
+      taskInput.value = '';
 
-    li.textContent = taskInput.value;
-    attachButton(li);
-    tasks.appendChild(li);
-    tasksTitle.style.display = '';
-    taskInput.value = '';
-
-    tasksTitle.textContent = "Inbox";
-    tasksSection.style.display = "";
+      tasksTitle.textContent = "Inbox";
+      tasksSection.style.display = "";
+    }
   }
 });
 
