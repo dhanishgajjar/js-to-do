@@ -1,0 +1,22 @@
+{
+  "name": "js-to-do",
+  "version": "1.0.0",
+  "description": "As a student I wish to learn more so please feel free to fork, and optimize, add features.",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ergo123/js-to-do.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ergo123/js-to-do/issues"
+  },
+  "homepage": "https://github.com/ergo123/js-to-do#readme",
+  "devDependencies": {
+    "http-server": "^0.11.1"
+  }
+}
